@@ -1,0 +1,65 @@
+---
+- hosts: all
+  tasks:
+  - name: Create user
+    user:
+      name: ben
+      groups: sudo
+      shell: /bin/bash
+  - name: Set authorized key
+    authorized_key:
+      user: ben
+      state: present
+      key: "{{ lookup('file', 'files/ovh.pub') }}"      
+  - name: Ensure ben has sudo
+    lineinfile:
+      dest: /etc/sudoers.d/ben
+      state: present
+      insertafter: EOF
+      line: "ben ALL=(ALL) NOPASSWD:ALL"
+      create: yes
+      owner: root
+      group: root
+      mode: 0440
+  - name: Disallow password authentication
+    lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: "^PasswordAuthentication"
+      line: "PasswordAuthentication no"
+      state: present
+    notify: reload_ssh
+  - name: Disallow root SSH access
+    lineinfile: 
+      dest: /etc/ssh/sshd_config
+      regexp: "^PermitRootLogin"
+      line: "PermitRootLogin no"
+      state: present
+    notify: reload_ssh
+  - name: Disable SSH TCP forwarding
+    lineinfile: 
+      dest: /etc/ssh/sshd_config
+      regexp: "^AllowTcpForwarding"
+      line: "AllowTcpForwarding no"
+      state: present
+    notify: reload_ssh
+  - name: Disable SSH X11 forwarding
+    lineinfile: 
+      dest: /etc/ssh/sshd_config
+      regexp: "^X11Forwarding"
+      line: "X11Forwarding no"
+      state: present
+    notify: reload_ssh
+  - name: Install packages
+    apt:
+      name: '{{ item }}'
+      state: latest
+      update_cache: yes
+    with_items:
+    - less
+
+
+  handlers:
+  - name: reload_ssh
+    systemd:
+      service: sshd
+      state: reloaded
