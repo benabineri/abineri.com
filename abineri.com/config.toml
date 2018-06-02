@@ -1,4 +1,4 @@
-baseURL = "http://abineri.com/"
+baseURL = "https://abineri.com/"
 languageCode = "en-gb"
 title = "Ben Abineri"
 theme = "cocoa-eh"
