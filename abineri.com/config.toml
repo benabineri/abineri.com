@@ -19,7 +19,6 @@ blog = "blog/:slug/"
 dateform = "Jan 2, 2006"
 dateformfull = "Mon Jan 2 2006 15:04:05 MST"
 description = "Ben Abineri"
-copyright = "Copyright © 2018 Ben Abineri"
 logofile = ""
 faviconfile = "img/logo.png"
 highlightjs = true
