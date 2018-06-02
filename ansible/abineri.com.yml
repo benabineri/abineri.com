@@ -57,6 +57,11 @@
     with_items:
     - less
     - nginx
+  - name: Link /var/www/html
+    file:
+      src: /home/ben/abineri.com/abineri.com/public
+      dest: /var/www/html
+      state: link
 
 
   handlers:
