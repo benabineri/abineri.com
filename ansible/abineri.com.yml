@@ -57,6 +57,7 @@
     with_items:
     - less
     - nginx
+    - hugo
   - name: Link /var/www/html
     file:
       src: /home/ben/abineri.com/abineri.com/public
