@@ -1,3 +1,38 @@
-baseURL = 'http://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = "https://abineri.com/"
+# include content marked as draft
+buildDrafts = false
+# include content with publishdate in the future
+buildFuture = false
+# include content already expired
+buildExpired = false
+# enable this to make all relative URLs relative to content root. Note that this does not affect absolute URLs.
+relativeURLs = true
+disableRSS = true
+enableRobotsTXT = true
+editor = "nano"
+languageCode = "en"
+language = "en"
+theme = "vncnt-hugo"
+title = "Ben Abineri - abineri.com"
+
+_merge = "none"
+
+[permalinks]
+  fixed = ":title/"
+  posts = "posts/:slug/"
+
+[params]
+  author = "Ben Abineri"
+  # email does still work but is deprecated.
+  # use [params.contact.email] instead.
+  #email = "john.doe@example.com"
+  description = "Landing Page"
+  bio = "Cloud Infrastructure Engineer"
+  avatar = "img/avatar.jpg"
+  favicon = "img/favicon.ico"
+  error404 = "There is no such page."
+
+  [params.contact]
+    # the default fontawesome style in simple key-value pairs is "fab", i.e. brand icons
+    github = "https://github.com/benabineri"
+    linkedin = "https://www.linkedin.com/in/benjaminabineri/"
