@@ -29,7 +29,7 @@ _merge = "none"
   description = "Landing Page"
   bio = "Cloud Infrastructure Engineer"
   avatar = "/me.jpg"
-  favicon = "/favicon.jpg"
+  favicon = "favicon.jpg"
   error404 = "Page not found"
 
   [params.contact]
