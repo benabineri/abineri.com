@@ -28,9 +28,9 @@ _merge = "none"
   #email = "john.doe@example.com"
   description = "Landing Page"
   bio = "Cloud Infrastructure Engineer"
-  avatar = "img/avatar.jpg"
-  favicon = "img/favicon.ico"
-  error404 = "There is no such page."
+  avatar = "me.jpg"
+  favicon = "favicon.jpg"
+  error404 = "Page not found"
 
   [params.contact]
     # the default fontawesome style in simple key-value pairs is "fab", i.e. brand icons
