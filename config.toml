@@ -28,8 +28,8 @@ _merge = "none"
   #email = "john.doe@example.com"
   description = "Landing Page"
   bio = "Cloud Infrastructure Engineer"
-  avatar = "me.jpg"
-  favicon = "favicon.jpg"
+  avatar = "/me.jpg"
+  favicon = "/favicon.jpg"
   error404 = "Page not found"
 
   [params.contact]
